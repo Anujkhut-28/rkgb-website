@@ -62,16 +62,15 @@ function CustomizationPage() {
   const activeFinish = finishes[activeFinishIndex];
   const activeSize = sizes[activeSizeIndex];
   const previewWidth = activeSize.width <= 60 ? activeSize.width * 4 : activeSize.width * 1.25;
-  const previewHeight = activeSize.height <= 60 ? activeSize.height * 4 : activeSize.height * 1.25;
   const showSizeBadge = activeSize.width >= 60 && activeSize.height >= 60;
 
   return (
     <div className="overflow-x-hidden bg-background">
       <section className="pt-32 pb-14">
-        <div className="mx-auto max-w-7xl px-6 lg:px-12">
+        <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-12">
           <Eyebrow>Customization</Eyebrow>
           <div className="mt-8 grid gap-8 lg:grid-cols-12 lg:items-end">
-            <div className="lg:col-span-8">
+            <div className="min-w-0 lg:col-span-8">
               <h1 className="max-w-4xl font-serif leading-[1.02] text-ink text-balance">
                 Visualize granite finishes and slab sizes.
               </h1>
@@ -84,14 +83,14 @@ function CustomizationPage() {
       </section>
 
       <section className="pb-24 md:pb-32">
-        <div className="mx-auto grid w-full max-w-7xl gap-8 px-4 sm:px-6 lg:grid-cols-[1.1fr_0.9fr] lg:px-12">
-          <div className="mt-5 border border-ink/10 bg-beige/40 p-5 md:mt-7 md:p-7 lg:mt-8">
+        <div className="mx-auto grid w-full max-w-7xl gap-6 px-4 sm:px-6 md:gap-8 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] lg:px-12">
+          <div className="mt-5 min-w-0 border border-ink/10 bg-beige/40 p-4 sm:p-5 md:mt-7 md:p-7 lg:mt-8">
             <div className="flex flex-wrap gap-2 border-b border-ink/10 pb-4">
               {finishes.map((finish, index) => (
                 <button
                   key={finish.name}
                   onClick={() => setActiveFinishIndex(index)}
-                  className={`shrink-0 border px-4 py-2 text-xs uppercase tracking-widest transition ${
+                  className={`min-w-0 flex-1 basis-[calc(50%-0.25rem)] border px-3 py-2 text-xs uppercase tracking-widest transition sm:flex-none sm:basis-auto sm:px-4 ${
                     activeFinishIndex === index
                       ? "border-gold bg-gold text-ink"
                       : "border-ink/15 text-muted-foreground hover:border-gold hover:text-ink"
@@ -102,7 +101,7 @@ function CustomizationPage() {
               ))}
             </div>
 
-            <div className="mx-auto mt-6 max-w-[92%] overflow-hidden">
+            <div className="mx-auto mt-6 w-full max-w-[92%] overflow-hidden">
               <div key={activeFinish.name} className="variant-image-fade aspect-[16/10]">
                 <img
                   src={activeFinish.image}
@@ -121,7 +120,7 @@ function CustomizationPage() {
             </div>
           </div>
 
-          <div className="mt-5 border border-ink/10 bg-background p-5 shadow-soft md:mt-7 md:p-7 lg:mt-8">
+          <div className="mt-5 min-w-0 border border-ink/10 bg-background p-4 shadow-soft sm:p-5 md:mt-7 md:p-7 lg:mt-8">
             <div className="text-xs uppercase tracking-[0.3em] text-gold">Slab Size</div>
             <h2 className="mt-3 font-serif text-ink">{activeSize.label}</h2>
 
@@ -130,7 +129,7 @@ function CustomizationPage() {
                 <button
                   key={size.label}
                   onClick={() => setActiveSizeIndex(index)}
-                  className={`border px-3 py-3 text-sm transition ${
+                  className={`min-w-0 border px-2 py-3 text-sm transition sm:px-3 ${
                     activeSizeIndex === index
                       ? "border-ink bg-ink text-background"
                       : "border-ink/15 text-muted-foreground hover:border-gold hover:text-ink"
@@ -141,15 +140,13 @@ function CustomizationPage() {
               ))}
             </div>
 
-            <div className="mt-8 grid min-h-[280px] w-full overflow-hidden bg-beige/35 p-3 sm:min-h-[330px] sm:place-items-center sm:p-6">
+            <div className="mt-8 grid min-h-[260px] w-full place-items-center overflow-hidden bg-beige/35 p-3 sm:min-h-[330px] sm:p-6">
               <div
                 key={`${activeFinish.name}-${activeSize.label}`}
-                className="variant-image-fade relative mx-auto grid max-h-[280px] w-full max-w-full place-items-center overflow-hidden border border-ink/20 shadow-luxury"
+                className="variant-image-fade relative mx-auto grid max-h-[280px] max-w-full place-items-center overflow-hidden border border-ink/20 shadow-luxury"
                 style={{
-                  width: `${previewWidth}px`,
-                  maxWidth: "100%",
+                  width: `min(${previewWidth}px, 100%)`,
                   aspectRatio: `${activeSize.width} / ${activeSize.height}`,
-                  height: `${previewHeight}px`,
                 }}
               >
                 <img
@@ -172,7 +169,7 @@ function CustomizationPage() {
 
             <Link
               to="/contact"
-              className="mt-6 inline-flex h-11 items-center gap-2 bg-ink px-6 text-sm tracking-wide text-background transition hover:bg-gold hover:text-ink"
+              className="mt-6 inline-flex h-11 w-full items-center justify-center gap-2 bg-ink px-6 text-sm tracking-wide text-background transition hover:bg-gold hover:text-ink sm:w-auto"
             >
               Discuss customization <ArrowUpRight className="h-4 w-4" />
             </Link>

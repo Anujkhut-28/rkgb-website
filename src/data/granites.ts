@@ -18,6 +18,7 @@ import pGrey from "@/assets/Projects/n grey-project.jpeg";
 import pBrown from "@/assets/Projects/coffee brown-project.png";
 import pGold from "@/assets/Projects/new imperial gold-project.png";
 import pPink from "@/assets/Projects/astoria pink-project.jpeg";
+import pYellow from "@/assets/Projects/crystal yellow-project.jpeg";
 
 export interface Granite {
   slug: string;
@@ -186,7 +187,7 @@ export const granites: Granite[] = [
   {
     slug: "yellow-granite", name: "Yellow Granite", tagline: "Bright. Warm. Distinctive.",
     shortDesc: "Golden-yellow mineral warmth for spaces that need brightness and natural character.",
-    slab: yellow, project: yellow, accentHex: "#c99a2e", layout: "unified",
+    slab: yellow, project: pYellow, accentHex: "#c99a2e", layout: "unified",
     origin: "Jaisalmer, Rajasthan",
     formation: "Quartz-feldspar granite with warm iron-rich mineral tone",
     story: ["Yellow Granite brings a warm golden tone into architectural surfaces, giving rooms a bright and welcoming character.", "Its mineral base carries soft yellow, cream, and amber movement for counters, floors, cladding, and decorative surfaces.", "The stone is useful where designers want warmth without the heavier look of brown or deep gold granite.", "Polished finishes enhance the yellow tone, while honed finishes create a softer matte look.", "Yellow Granite pairs beautifully with white walls, wood, bronze fittings, black accents, and warm neutral interiors."],
