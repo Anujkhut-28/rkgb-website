@@ -164,6 +164,7 @@ const variantProjectFiles: Record<string, string> = {
   "River White Granite": "river white-project.jpeg",
   "Viscon White Granite": "viscon white-project.jpeg",
   "New Kashmir White Granite": "new kashmir white-project.png",
+  "Crystal Yellow Granite": "crystal yellow-project.jpeg",
 };
 
 const getVariantProjectImage = (variantName: string) => {

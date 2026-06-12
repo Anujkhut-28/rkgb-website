@@ -48,16 +48,16 @@ function ContactPage() {
           </form>
           <div className="space-y-6">
             <DetailCard icon={MapPin} title="Visit the studio">
-              Plot 14, Industrial Area, Phase II<br />Jaipur, Rajasthan 302013, India
+             Industrial Area<br />Udaipur, Rajasthan, India
             </DetailCard>
             <DetailCard icon={Phone} title="Call">
-              +91 98765 43210<br />Mon–Sat · 9.30–18.30 IST
+              +91 81697 93994<br />Mon–Sat · 9.30–18.30 IST
             </DetailCard>
             <DetailCard icon={Mail} title="Email">
               info@rkgb.com<br />exports@rkgb.com
             </DetailCard>
             <DetailCard icon={MessageCircle} title="WhatsApp">
-              <a href="https://wa.me/919876543210" className="text-gold underline-offset-4 hover:underline">Chat with our team →</a>
+              <a href="https://wa.me/918169793994" className="text-gold underline-offset-4 hover:underline">Chat with our team →</a>
             </DetailCard>
           </div>
         </div>

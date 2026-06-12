@@ -17,7 +17,7 @@ export function QuoteCTA({ accent = "var(--gold)" }: { accent?: string }) {
           <Link to="/contact" className="h-12 inline-flex items-center bg-gold px-8 text-sm font-medium tracking-wide text-ink hover:bg-background transition">
             Request a Quote
           </Link>
-          <a href="https://wa.me/919876543210" className="h-12 inline-flex items-center border border-background/30 px-8 text-sm tracking-wide text-background hover:border-gold hover:text-gold transition">
+          <a href="https://wa.me/918169793994" className="h-12 inline-flex items-center border border-background/30 px-8 text-sm tracking-wide text-background hover:border-gold hover:text-gold transition">
             WhatsApp Inquiry
           </a>
         </div>

@@ -61,11 +61,12 @@ function CustomizationPage() {
   const [activeSizeIndex, setActiveSizeIndex] = useState(0);
   const activeFinish = finishes[activeFinishIndex];
   const activeSize = sizes[activeSizeIndex];
-  const previewScale = activeSize.width <= 60 ? 4 : 1.25;
+  const previewWidth = activeSize.width <= 60 ? activeSize.width * 4 : activeSize.width * 1.25;
+  const previewHeight = activeSize.height <= 60 ? activeSize.height * 4 : activeSize.height * 1.25;
   const showSizeBadge = activeSize.width >= 60 && activeSize.height >= 60;
 
   return (
-    <div className="bg-background">
+    <div className="overflow-x-hidden bg-background">
       <section className="pt-32 pb-14">
         <div className="mx-auto max-w-7xl px-6 lg:px-12">
           <Eyebrow>Customization</Eyebrow>
@@ -83,7 +84,7 @@ function CustomizationPage() {
       </section>
 
       <section className="pb-24 md:pb-32">
-        <div className="mx-auto grid max-w-7xl gap-8 px-6 lg:grid-cols-[1.1fr_0.9fr] lg:px-12">
+        <div className="mx-auto grid w-full max-w-7xl gap-8 px-4 sm:px-6 lg:grid-cols-[1.1fr_0.9fr] lg:px-12">
           <div className="mt-5 border border-ink/10 bg-beige/40 p-5 md:mt-7 md:p-7 lg:mt-8">
             <div className="flex flex-wrap gap-2 border-b border-ink/10 pb-4">
               {finishes.map((finish, index) => (
@@ -140,13 +141,15 @@ function CustomizationPage() {
               ))}
             </div>
 
-            <div className="mt-8 grid min-h-[330px] place-items-center bg-beige/35 p-6">
+            <div className="mt-8 grid min-h-[280px] w-full overflow-hidden bg-beige/35 p-3 sm:min-h-[330px] sm:place-items-center sm:p-6">
               <div
                 key={`${activeFinish.name}-${activeSize.label}`}
-                className="variant-image-fade relative grid max-h-[280px] max-w-full place-items-center overflow-hidden border border-ink/20 shadow-luxury"
+                className="variant-image-fade relative mx-auto grid max-h-[280px] w-full max-w-full place-items-center overflow-hidden border border-ink/20 shadow-luxury"
                 style={{
-                  width: `${activeSize.width * previewScale}px`,
-                  height: `${activeSize.height * previewScale}px`,
+                  width: `${previewWidth}px`,
+                  maxWidth: "100%",
+                  aspectRatio: `${activeSize.width} / ${activeSize.height}`,
+                  height: `${previewHeight}px`,
                 }}
               >
                 <img
