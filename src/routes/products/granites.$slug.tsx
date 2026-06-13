@@ -885,18 +885,6 @@ function GraniteDetail() {
               <p className="mt-6 max-w-lg leading-relaxed text-muted-foreground">
                 {g.shortDesc}
               </p>
-              <div className="mt-8 flex flex-wrap gap-3">
-                <span
-                  className="inline-flex items-center gap-2 rounded-full px-4 py-2 text-xs uppercase tracking-widest text-ink"
-                  style={{ background: `${g.accentHex}1f`, border: `1px solid ${g.accentHex}40` }}
-                >
-                  <span className="h-2 w-2 rounded-full" style={{ background: g.accentHex }} />
-                  {g.origin}
-                </span>
-                <span className="inline-flex items-center rounded-full border border-ink/15 px-4 py-2 text-xs uppercase tracking-widest text-muted-foreground">
-                  {g.specs[0]?.value ?? "Granite"}
-                </span>
-              </div>
             </div>
             <div className="md:col-span-6">
               <div className="relative overflow-hidden rounded-sm shadow-[0_30px_60px_-20px_rgba(0,0,0,0.25)]">
