@@ -125,39 +125,48 @@ export function Navbar() {
       </nav>
 
       {mobileOpen && (
-        <div className="fixed inset-0 z-50 h-dvh overflow-y-auto overscroll-contain bg-background lg:hidden">
-          <div className="sticky top-0 z-10 flex h-20 items-center justify-between border-b border-ink/10 bg-background px-6">
-            <span className="flex items-center gap-3">
-              <img src={logo} alt="RKGB logo" className="h-11 w-11 rounded-full object-contain" />
-              <span className="font-serif text-xl text-ink">RKGB</span>
+        <div className="fixed inset-0 z-50 h-dvh overflow-y-auto overscroll-contain bg-ink text-background lg:hidden">
+          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_8%,rgba(191,143,77,0.22),transparent_28%),radial-gradient(circle_at_85%_18%,rgba(255,255,255,0.12),transparent_24%),linear-gradient(160deg,rgba(191,143,77,0.16),transparent_42%)]" />
+          <div className="sticky top-0 z-10 flex h-20 items-center justify-between border-b border-background/10 bg-ink/88 px-5 backdrop-blur-xl">
+            <span className="flex items-center gap-3 rounded-full border border-background/10 bg-background/8 py-2 pr-4 pl-2">
+              <img src={logo} alt="RKGB logo" className="h-11 w-11 rounded-full object-contain bg-background" />
+              <span className="font-serif text-2xl text-background">RKGB</span>
             </span>
-            <button aria-label="Close menu" onClick={() => setMobileOpen(false)}>
+            <button
+              aria-label="Close menu"
+              onClick={() => setMobileOpen(false)}
+              className="grid h-11 w-11 place-items-center rounded-full border border-background/15 bg-background/10 text-background"
+            >
               <X className="h-6 w-6" />
             </button>
           </div>
-          <div className="px-6 py-8">
-            <ul className="space-y-6">
+          <div className="relative px-5 py-7">
+            <div className="mb-8 border-l border-gold/60 pl-4">
+              <div className="text-xs uppercase tracking-[0.3em] text-gold">Natural stone</div>
+              <div className="mt-2 font-serif text-3xl leading-none">Explore RKGB</div>
+            </div>
+            <ul className="space-y-3">
               <li>
-                <Link to="/" onClick={() => setMobileOpen(false)} className="font-serif text-3xl">
+                <Link to="/" onClick={() => setMobileOpen(false)} className="block border border-background/10 bg-background/8 px-5 py-4 font-serif text-3xl text-background backdrop-blur-sm">
                   Home
                 </Link>
               </li>
               <li>
-                <Link to="/about" onClick={() => setMobileOpen(false)} className="font-serif text-3xl">
+                <Link to="/about" onClick={() => setMobileOpen(false)} className="block border border-background/10 bg-background/8 px-5 py-4 font-serif text-3xl text-background backdrop-blur-sm">
                   About Us
                 </Link>
               </li>
               <li>
                 <button
                   onClick={() => setMobileProductsOpen((s) => !s)}
-                  className="flex items-center gap-2 font-serif text-3xl"
+                  className="flex w-full items-center justify-between border border-gold/30 bg-gold/12 px-5 py-4 font-serif text-3xl text-background"
                 >
                   Products <ChevronRight className={`h-5 w-5 transition ${mobileProductsOpen ? "rotate-90" : ""}`} />
                 </button>
                 {mobileProductsOpen && (
-                  <ul className="mt-3 ml-2 space-y-2 border-l border-border pl-4">
+                  <ul className="mt-3 space-y-2 border border-background/10 bg-background/8 p-4 backdrop-blur-sm">
                     <li>
-                      <Link to="/products/granites" onClick={() => setMobileOpen(false)} className="text-base text-ink">
+                      <Link to="/products/granites" onClick={() => setMobileOpen(false)} className="block border-b border-background/10 pb-3 text-base text-background">
                         All Granites
                       </Link>
                     </li>
@@ -167,19 +176,20 @@ export function Navbar() {
                           to="/products/granites/$slug"
                           params={{ slug: g.slug }}
                           onClick={() => setMobileOpen(false)}
-                          className="text-sm text-muted-foreground"
+                          className="flex items-center gap-2 py-1.5 text-sm text-background/70"
                         >
+                          <span className="h-2 w-2 rounded-full" style={{ background: g.accentHex }} />
                           {g.name}
                         </Link>
                       </li>
                     ))}
                     <li>
-                      <Link to="/products/marbles" onClick={() => setMobileOpen(false)} className="text-base text-ink">
+                      <Link to="/products/marbles" onClick={() => setMobileOpen(false)} className="mt-3 block border-t border-background/10 pt-3 text-base text-background">
                         Marbles
                       </Link>
                     </li>
                     <li>
-                      <Link to="/customization" onClick={() => setMobileOpen(false)} className="text-base text-ink">
+                      <Link to="/customization" onClick={() => setMobileOpen(false)} className="block text-base text-background">
                         Customization
                       </Link>
                     </li>
@@ -187,7 +197,7 @@ export function Navbar() {
                 )}
               </li>
               <li>
-                <Link to="/contact" onClick={() => setMobileOpen(false)} className="font-serif text-3xl">
+                <Link to="/contact" onClick={() => setMobileOpen(false)} className="block border border-background/10 bg-background/8 px-5 py-4 font-serif text-3xl text-background backdrop-blur-sm">
                   Contact
                 </Link>
               </li>
@@ -195,7 +205,7 @@ export function Navbar() {
             <Link
               to="/contact"
               onClick={() => setMobileOpen(false)}
-              className="mt-10 inline-flex h-12 items-center bg-ink px-8 text-sm text-background"
+              className="mt-8 inline-flex h-12 w-full items-center justify-center bg-gold px-8 text-sm font-medium tracking-wide text-ink"
             >
               Get a Quote
             </Link>

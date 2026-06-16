@@ -36,7 +36,7 @@ function Home() {
 
 function Hero() {
   return (
-    <section className="relative h-screen min-h-[720px] w-full overflow-hidden">
+    <section className="relative min-h-[620px] w-full overflow-hidden sm:min-h-[680px] lg:min-h-[700px]">
       <img
         src={hero}
         alt="Polished luxury granite surface"
@@ -47,17 +47,17 @@ function Hero() {
       <div className="absolute inset-0 bg-gradient-to-br from-background/85 via-background/40 to-background/80" />
       <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
 
-      <div className="relative z-10 mx-auto flex h-full max-w-7xl flex-col justify-end px-6 pb-44 lg:px-12 lg:pb-48">
-        <div className="reveal max-w-3xl">
+      <div className="relative z-10 mx-auto flex min-h-[620px] max-w-7xl flex-col justify-center px-4 py-28 sm:min-h-[680px] sm:px-6 md:justify-end md:pb-32 md:pt-36 lg:min-h-[700px] lg:px-12 lg:pb-36">
+        <div className="reveal max-w-2xl xl:max-w-3xl">
           <Eyebrow>Est. Radhe Krishna · India</Eyebrow>
-          <h1 className="reveal reveal-delay-1 mt-6 font-serif text-5xl leading-[1.05] text-ink text-balance md:text-7xl lg:text-8xl">
+          <h1 className="reveal reveal-delay-1 mt-5 font-serif text-4xl leading-[1.05] text-ink text-balance sm:text-5xl md:text-6xl xl:text-8xl">
             Premium Granite &amp; Marble Solutions
           </h1>
-          <p className="reveal reveal-delay-2 mt-6 max-w-xl text-lg text-ink/70">
+          <p className="reveal reveal-delay-2 mt-5 max-w-xl text-base leading-7 text-ink/70 sm:text-lg">
             Crafting Excellence in Natural Stone — sourced, finished, and exported with the
             precision the world&apos;s most ambitious architecture demands.
           </p>
-          <div className="reveal reveal-delay-3 mt-10 flex flex-wrap gap-4">
+          <div className="reveal reveal-delay-3 mt-8 flex flex-wrap gap-3 sm:gap-4">
             <Link to="/products" className="group inline-flex h-12 items-center gap-2 bg-ink px-7 text-sm tracking-wide text-background transition hover:bg-gold">
               Explore Products
               <ArrowUpRight className="h-4 w-4 transition group-hover:rotate-45" />
@@ -69,7 +69,7 @@ function Hero() {
         </div>
 
         {/* Floating side card */}
-        <div className="reveal reveal-delay-4 absolute right-6 top-1/2 hidden -translate-y-1/2 lg:right-12 lg:block">
+        <div className="reveal reveal-delay-4 absolute right-6 top-1/2 hidden -translate-y-1/2 xl:right-12 xl:block">
           <div className="glass animate-float-prominent w-72 p-6 shadow-luxury">
             <Eyebrow>Slab of the Month</Eyebrow>
             <h3 className="mt-4 font-serif text-2xl">Imperial Gold</h3>

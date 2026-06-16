@@ -13,20 +13,6 @@ import appCss from "../styles.css?url";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import logo from "@/assets/logo.png";
-import blackGranite from "@/assets/Black-Galaxy-Granite.png";
-import blueGranite from "@/assets/crystal blue granite.jpg";
-import brownGranite from "@/assets/Tan-Brown-Granite.jpg";
-import forestGranite from "@/assets/Black-Forest-Granite.png";
-import goldGranite from "@/assets/New-Imperial-Gold-Granite.png";
-import greenGranite from "@/assets/Hassan-Green-Granite.jpg";
-import redGranite from "@/assets/Ruby-Red-Granite.png";
-import whiteGranite from "@/assets/colonial-White-Granite.png";
-import fantasyBrownMarble from "@/assets/Fantasy-Brown-Marble.png";
-import fantasyWhiteMarble from "@/assets/fantasy-white-marble.png";
-import greenMarble from "@/assets/green-marble.png";
-import lightningBlackMarble from "@/assets/lightning-black-marble.png";
-import paradiseBlueMarble from "@/assets/paradise-blue-marble.png";
-import snowWhiteMarble from "@/assets/snow-white-marble.png";
 
 function NotFoundComponent() {
   return (
@@ -146,10 +132,8 @@ function RootComponent() {
 
 function BrandIntro() {
   const [visible, setVisible] = useState(true);
-  const [stones, setStones] = useState<BrandStone[]>([]);
 
   useEffect(() => {
-    setStones(getRandomBrandStones());
     const timeout = window.setTimeout(() => setVisible(false), 2400);
     return () => window.clearTimeout(timeout);
   }, []);
@@ -157,22 +141,12 @@ function BrandIntro() {
   if (!visible) return null;
 
   return (
-    <div className="brand-intro fixed inset-0 z-[100] grid place-items-center bg-background">
-      <div className="pointer-events-none absolute inset-0 overflow-hidden">
-        {stones.map((stone, index) => (
-          <img
-            key={`${stone.alt}-${index}`}
-            src={stone.src}
-            alt=""
-            aria-hidden="true"
-            className={`brand-intro-stone brand-intro-stone-${index + 1} absolute rounded-xl border border-background/70 object-cover shadow-luxury ${stone.className}`}
-          />
-        ))}
-      </div>
-      <div className="brand-intro-mark flex items-center gap-4">
-        <img src={logo} alt="" className="h-16 w-16 rounded-full object-contain shadow-gold md:h-20 md:w-20" />
+    <div className="brand-intro fixed inset-0 z-[100] grid place-items-center overflow-hidden bg-background">
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_42%,rgba(191,143,77,0.18),transparent_34%),linear-gradient(135deg,rgba(32,28,24,0.08),transparent_46%,rgba(191,143,77,0.1))]" />
+      <div className="brand-intro-mark relative flex items-center gap-5 rounded-full border border-gold/25 bg-background/80 px-6 py-5 shadow-luxury backdrop-blur-md md:gap-6 md:px-8 md:py-6">
+        <img src={logo} alt="" className="h-18 w-18 rounded-full object-contain shadow-gold md:h-24 md:w-24" />
         <div className="leading-none">
-          <div className="brand-intro-title font-serif text-[2.75rem] text-ink md:text-[4rem]">RKGB</div>
+          <div className="brand-intro-title font-serif text-[3.75rem] text-ink md:text-[6rem]">RKGB</div>
           <div className="mt-2 text-[0.65rem] uppercase tracking-[0.28em] text-muted-foreground md:text-xs">
             Granite &amp; BuildCon
           </div>
@@ -180,49 +154,4 @@ function BrandIntro() {
       </div>
     </div>
   );
-}
-
-type BrandStone = {
-  src: string;
-  alt: string;
-  className: string;
-};
-
-const brandStoneImages = [
-  { src: blackGranite, alt: "Black granite texture" },
-  { src: blueGranite, alt: "Blue granite texture" },
-  { src: brownGranite, alt: "Brown granite texture" },
-  { src: forestGranite, alt: "Forest granite texture" },
-  { src: goldGranite, alt: "Gold granite texture" },
-  { src: greenGranite, alt: "Green granite texture" },
-  { src: redGranite, alt: "Red granite texture" },
-  { src: whiteGranite, alt: "White granite texture" },
-  { src: fantasyBrownMarble, alt: "Fantasy brown marble texture" },
-  { src: fantasyWhiteMarble, alt: "Fantasy white marble texture" },
-  { src: greenMarble, alt: "Green marble texture" },
-  { src: lightningBlackMarble, alt: "Lightning black marble texture" },
-  { src: paradiseBlueMarble, alt: "Paradise blue marble texture" },
-  { src: snowWhiteMarble, alt: "Snow white marble texture" },
-];
-
-const brandStonePositions = [
-  "left-[5%] top-[12%] h-20 w-24 rotate-[-11deg] md:left-[8%] md:top-[16%] md:h-32 md:w-40",
-  "left-[30%] top-[8%] h-16 w-24 rotate-[8deg] md:left-[27%] md:top-[10%] md:h-24 md:w-36",
-  "right-[28%] top-[9%] h-16 w-24 rotate-[-7deg] md:right-[29%] md:top-[11%] md:h-24 md:w-36",
-  "right-[5%] top-[14%] h-20 w-24 rotate-[10deg] md:right-[8%] md:top-[17%] md:h-32 md:w-40",
-  "left-[6%] top-[42%] h-24 w-20 rotate-[6deg] md:left-[12%] md:top-[43%] md:h-40 md:w-32",
-  "right-[6%] top-[42%] h-24 w-20 rotate-[-8deg] md:right-[12%] md:top-[42%] md:h-40 md:w-32",
-  "left-[9%] bottom-[12%] h-20 w-28 rotate-[-6deg] md:left-[14%] md:bottom-[14%] md:h-28 md:w-44",
-  "left-[36%] bottom-[8%] h-16 w-24 rotate-[9deg] md:left-[34%] md:bottom-[10%] md:h-24 md:w-36",
-  "right-[34%] bottom-[8%] h-16 w-24 rotate-[-9deg] md:right-[34%] md:bottom-[10%] md:h-24 md:w-36",
-  "right-[8%] bottom-[12%] h-20 w-28 rotate-[7deg] md:right-[14%] md:bottom-[14%] md:h-28 md:w-44",
-];
-
-function getRandomBrandStones() {
-  const shuffled = [...brandStoneImages].sort(() => Math.random() - 0.5);
-
-  return brandStonePositions.map((className, index) => ({
-    ...shuffled[index % shuffled.length],
-    className,
-  }));
 }
