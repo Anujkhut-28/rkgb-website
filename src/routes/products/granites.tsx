@@ -35,7 +35,7 @@ function GranitesCatalog() {
               Ten signature granites,<br/>graded for the world.
             </h1>
             <div className="md:col-span-4 md:col-start-9 self-end">
-              <p className="text-muted-foreground">From the gabbroic shields of Karimnagar to the migmatites of Madurai every block in this collection is matched, finished, and inspected slab-by-slab.</p>
+              <p className="text-muted-foreground">From the gabbroic shields of Udaipur every block in this collection is matched, finished, and inspected slab-by-slab.</p>
               <div className="mt-6 flex gap-6 text-sm">
                 <div><div className="font-serif text-3xl text-gold">10</div><div className="text-xs uppercase tracking-widest text-muted-foreground">Varieties</div></div>
                 <div><div className="font-serif text-3xl text-gold">12%</div><div className="text-xs uppercase tracking-widest text-muted-foreground">Top grade</div></div>
@@ -67,7 +67,7 @@ function GranitesCatalog() {
               <Eyebrow>The Index</Eyebrow>
               <h2 className="mt-4 font-serif text-4xl text-ink md:text-5xl">Browse the collection.</h2>
             </div>
-            <div className="hidden text-sm text-muted-foreground md:block">Scroll Â· 10 stones</div>
+            <div className="hidden text-sm text-muted-foreground md:block">Scroll 10 stones</div>
           </div>
 
           <div className="mt-10 space-y-5 border-t border-ink/10 md:mt-16 md:space-y-px">
@@ -88,7 +88,6 @@ function GranitesCatalog() {
                   <div className="font-serif text-3xl text-ink md:text-3xl">{g.name}</div>
                   <div className="mt-1 text-xs uppercase tracking-widest text-gold">{g.tagline}</div>
                 </div>
-                <div className="col-span-3 hidden text-sm text-muted-foreground md:block">{g.origin}</div>
                 <div className="mt-4 flex justify-end md:col-span-1 md:mt-0">
                   <ArrowUpRight className="h-5 w-5 text-ink transition group-hover:rotate-45 group-hover:text-gold" />
                 </div>
